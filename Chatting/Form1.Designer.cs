@@ -29,14 +29,16 @@
         private void InitializeComponent()
         {
             this.tittle = new System.Windows.Forms.Label();
-            this.message = new System.Windows.Forms.TextBox();
-            this.port = new System.Windows.Forms.TextBox();
+            this.messageText = new System.Windows.Forms.TextBox();
+            this.portText = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonSend = new System.Windows.Forms.Button();
             this.chat = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.portChat = new System.Windows.Forms.TextBox();
+            this.portUser = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tittle
@@ -46,7 +48,7 @@
             this.tittle.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tittle.Font = new System.Drawing.Font("MS Reference Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tittle.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.tittle.Location = new System.Drawing.Point(353, 30);
+            this.tittle.Location = new System.Drawing.Point(228, 20);
             this.tittle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tittle.Name = "tittle";
             this.tittle.Size = new System.Drawing.Size(351, 60);
@@ -54,19 +56,19 @@
             this.tittle.Text = "Chatting App";
             this.tittle.Click += new System.EventHandler(this.label1_Click);
             // 
-            // message
+            // messageText
             // 
-            this.message.Location = new System.Drawing.Point(139, 248);
-            this.message.Name = "message";
-            this.message.Size = new System.Drawing.Size(285, 22);
-            this.message.TabIndex = 1;
+            this.messageText.Location = new System.Drawing.Point(139, 248);
+            this.messageText.Name = "messageText";
+            this.messageText.Size = new System.Drawing.Size(285, 22);
+            this.messageText.TabIndex = 1;
             // 
-            // port
+            // portText
             // 
-            this.port.Location = new System.Drawing.Point(215, 363);
-            this.port.Name = "port";
-            this.port.Size = new System.Drawing.Size(124, 22);
-            this.port.TabIndex = 2;
+            this.portText.Location = new System.Drawing.Point(215, 363);
+            this.portText.Name = "portText";
+            this.portText.Size = new System.Drawing.Size(124, 22);
+            this.portText.TabIndex = 2;
             // 
             // label2
             // 
@@ -97,16 +99,17 @@
             this.label1.Text = "Puerto de llegada";
             this.label1.Click += new System.EventHandler(this.label1_Click_2);
             // 
-            // button1
+            // buttonSend
             // 
-            this.button1.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.LightSlateGray;
-            this.button1.Location = new System.Drawing.Point(153, 449);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(233, 60);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Enviar Mensaje";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonSend.Font = new System.Drawing.Font("MS Reference Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSend.ForeColor = System.Drawing.Color.LightSlateGray;
+            this.buttonSend.Location = new System.Drawing.Point(153, 449);
+            this.buttonSend.Name = "buttonSend";
+            this.buttonSend.Size = new System.Drawing.Size(233, 60);
+            this.buttonSend.TabIndex = 6;
+            this.buttonSend.Text = "Enviar Mensaje";
+            this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.Click += new System.EventHandler(this.button1_Click);
             // 
             // chat
             // 
@@ -132,12 +135,33 @@
             this.label3.Text = "Chat con";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // textBox1
+            // portChat
             // 
-            this.textBox1.Location = new System.Drawing.Point(823, 164);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(124, 22);
-            this.textBox1.TabIndex = 8;
+            this.portChat.Location = new System.Drawing.Point(823, 164);
+            this.portChat.Name = "portChat";
+            this.portChat.Size = new System.Drawing.Size(124, 22);
+            this.portChat.TabIndex = 8;
+            // 
+            // portUser
+            // 
+            this.portUser.Location = new System.Drawing.Point(678, 67);
+            this.portUser.Name = "portUser";
+            this.portUser.Size = new System.Drawing.Size(226, 22);
+            this.portUser.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoEllipsis = true;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.label4.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label4.Location = new System.Drawing.Point(738, 20);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(99, 26);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Usuario";
             // 
             // Form1
             // 
@@ -145,18 +169,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(1084, 642);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.portUser);
+            this.Controls.Add(this.portChat);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.chat);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.port);
-            this.Controls.Add(this.message);
+            this.Controls.Add(this.portText);
+            this.Controls.Add(this.messageText);
             this.Controls.Add(this.tittle);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.DarkGray;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -168,14 +194,16 @@
         #endregion
 
         private System.Windows.Forms.Label tittle;
-        private System.Windows.Forms.TextBox message;
-        private System.Windows.Forms.TextBox port;
+        private System.Windows.Forms.TextBox messageText;
+        private System.Windows.Forms.TextBox portText;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonSend;
         private System.Windows.Forms.TextBox chat;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox portChat;
+        private System.Windows.Forms.TextBox portUser;
+        private System.Windows.Forms.Label label4;
     }
 }
 

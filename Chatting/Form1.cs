@@ -12,9 +12,18 @@ namespace Chatting
 {
     public partial class Form1 : Form
     {
+        private User user;
         public Form1()
         {
             InitializeComponent();
+            user = new User(1234);
+            user.MessageReceived += User_MessageReceived;
+            user.recentMessage();
+        }
+
+        private void User_MessageReceived(string message)
+        {
+            chat.AppendText("Recibido: " + message + Environment.NewLine);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -40,6 +49,11 @@ namespace Chatting
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
