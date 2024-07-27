@@ -34,9 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSend = new System.Windows.Forms.Button();
-            this.chat = new System.Windows.Forms.TextBox();
+            this.chatBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.portChat = new System.Windows.Forms.TextBox();
             this.portUser = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -69,6 +68,7 @@
             this.portText.Name = "portText";
             this.portText.Size = new System.Drawing.Size(124, 22);
             this.portText.TabIndex = 2;
+            this.portText.TextChanged += new System.EventHandler(this.portText_TextChanged);
             // 
             // label2
             // 
@@ -111,14 +111,15 @@
             this.buttonSend.UseVisualStyleBackColor = true;
             this.buttonSend.Click += new System.EventHandler(this.button1_Click);
             // 
-            // chat
+            // chatBox
             // 
-            this.chat.Location = new System.Drawing.Point(597, 222);
-            this.chat.Multiline = true;
-            this.chat.Name = "chat";
-            this.chat.ReadOnly = true;
-            this.chat.Size = new System.Drawing.Size(380, 337);
-            this.chat.TabIndex = 1;
+            this.chatBox.Location = new System.Drawing.Point(609, 236);
+            this.chatBox.Multiline = true;
+            this.chatBox.Name = "chatBox";
+            this.chatBox.ReadOnly = true;
+            this.chatBox.Size = new System.Drawing.Size(380, 337);
+            this.chatBox.TabIndex = 1;
+            this.chatBox.TextChanged += new System.EventHandler(this.chat_TextChanged);
             // 
             // label3
             // 
@@ -127,7 +128,7 @@
             this.label3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label3.Location = new System.Drawing.Point(627, 146);
+            this.label3.Location = new System.Drawing.Point(712, 167);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(166, 40);
@@ -135,31 +136,26 @@
             this.label3.Text = "Chat con";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // portChat
-            // 
-            this.portChat.Location = new System.Drawing.Point(823, 164);
-            this.portChat.Name = "portChat";
-            this.portChat.Size = new System.Drawing.Size(124, 22);
-            this.portChat.TabIndex = 8;
-            // 
             // portUser
             // 
-            this.portUser.Location = new System.Drawing.Point(678, 67);
+            this.portUser.Location = new System.Drawing.Point(729, 99);
             this.portUser.Name = "portUser";
-            this.portUser.Size = new System.Drawing.Size(226, 22);
+            this.portUser.ReadOnly = true;
+            this.portUser.Size = new System.Drawing.Size(132, 22);
             this.portUser.TabIndex = 9;
+            this.portUser.TextChanged += new System.EventHandler(this.portUser_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoEllipsis = true;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label4.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("MS Reference Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label4.Location = new System.Drawing.Point(738, 20);
+            this.label4.Location = new System.Drawing.Point(722, 36);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 26);
+            this.label4.Size = new System.Drawing.Size(145, 40);
             this.label4.TabIndex = 10;
             this.label4.Text = "Usuario";
             // 
@@ -171,9 +167,8 @@
             this.ClientSize = new System.Drawing.Size(1084, 642);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.portUser);
-            this.Controls.Add(this.portChat);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.chat);
+            this.Controls.Add(this.chatBox);
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -199,9 +194,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonSend;
-        private System.Windows.Forms.TextBox chat;
+        private System.Windows.Forms.TextBox chatBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox portChat;
         private System.Windows.Forms.TextBox portUser;
         private System.Windows.Forms.Label label4;
     }
