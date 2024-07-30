@@ -15,10 +15,11 @@ namespace Chatting
     public partial class Form1 : Form
     {
         private User userMain;
-        public const int userPort = 5562;
-        public Form1()
+        private int userPort;
+        public Form1(int port)
         {
             InitializeComponent();
+            userPort = port;
             userMain = new User(userPort);
             userMain.MessageReceived += User_MessageReceived;
             userMain.connectionChat();
@@ -61,7 +62,7 @@ namespace Chatting
 
             await userMain.SendMessage(message, ipAddr, port, userPort);
 
-            chatBox.AppendText($"Enviado: {message}{Environment.NewLine}");
+            chatBox.AppendText($"Enviado a {port}: {message}{Environment.NewLine}");
             messageText.Clear();
 
         }

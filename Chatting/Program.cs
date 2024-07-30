@@ -16,7 +16,14 @@ namespace Chatting
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            using (var startupForm = new StartupForm())
+            {
+                if (startupForm.ShowDialog() == DialogResult.OK)
+                {
+                    Application.Run(new Form1(startupForm.userPort));
+                }
+            }
         }
     }
 }
